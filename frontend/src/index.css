@@ -1,13 +1,21 @@
-body{
+body {
     scroll-behavior: smooth;
+    font-weight: 600;
 }
-*{
+
+* {
     scroll-behavior: smooth;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
+}
+
+.leaflet-routing-alt {
+    font-size: 10px !important;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
 }
