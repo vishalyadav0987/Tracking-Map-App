@@ -5,6 +5,8 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
 import carIconUrl from './assests/gps-navigation.png'
+import InitialPointUrl from './assests/initial1.png'
+import FinalPointUrl from './assests/final.png'
 import 'leaflet-control-geocoder';
 
 const socket = io('http://localhost:5000'); // Connect to your backend server
@@ -12,6 +14,18 @@ const socket = io('http://localhost:5000'); // Connect to your backend server
 // Define the custom car icon
 const carIcon = new L.Icon({
   iconUrl: carIconUrl, // URL or imported image for the car
+  iconSize: [80, 80], // Size of the car icon
+  iconAnchor: [20, 40], // Anchor of the icon
+  popupAnchor: [0, -40], // Popup anchor relative to the iconAnchor
+});
+const InitialPoint = new L.Icon({
+  iconUrl: InitialPointUrl, // URL or imported image for the car
+  iconSize: [80, 80], // Size of the car icon
+  iconAnchor: [20, 40], // Anchor of the icon
+  popupAnchor: [0, -40], // Popup anchor relative to the iconAnchor
+});
+const FinalPoint = new L.Icon({
+  iconUrl: FinalPointUrl, // URL or imported image for the car
   iconSize: [80, 80], // Size of the car icon
   iconAnchor: [20, 40], // Anchor of the icon
   popupAnchor: [0, -40], // Popup anchor relative to the iconAnchor
@@ -116,13 +130,13 @@ function App() {
               location && placeNameTrack && <MovingMarker location={location} startPoint={{ lat: 31.2678133, lng: 75.7004373 }} placeNameTrack={placeNameTrack} />
             }
             {/* Current User's Location */}
-            <Marker position={initialDestination}>
+            <Marker position={initialDestination} icon={InitialPoint}>
               <Popup>{placeNameInitial && placeNameInitial}</Popup>
             </Marker>
             {/* Tracked User's Location */}
             {trackedUserLocation && (
               <>
-                <Marker position={finalDestination}>
+                <Marker position={finalDestination} icon={FinalPoint}>
                   <Popup>{placeNameFinal && placeNameFinal}</Popup>
                 </Marker>
                 {/* asdfghjkl */}
