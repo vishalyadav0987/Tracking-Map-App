@@ -20,13 +20,13 @@ const carIcon = new L.Icon({
 });
 const InitialPoint = new L.Icon({
   iconUrl: InitialPointUrl, // URL or imported image for the car
-  iconSize: [80, 80], // Size of the car icon
+  iconSize: [50, 50], // Size of the car icon
   iconAnchor: [20, 40], // Anchor of the icon
   popupAnchor: [0, -40], // Popup anchor relative to the iconAnchor
 });
 const FinalPoint = new L.Icon({
   iconUrl: FinalPointUrl, // URL or imported image for the car
-  iconSize: [80, 80], // Size of the car icon
+  iconSize: [60, 60], // Size of the car icon
   iconAnchor: [20, 40], // Anchor of the icon
   popupAnchor: [0, -40], // Popup anchor relative to the iconAnchor
 });
@@ -127,7 +127,7 @@ function App() {
             />
             {/* Real-time Moving Marker for the Current User */}
             {
-              location && placeNameTrack && <MovingMarker location={location} startPoint={{ lat: 31.2678133, lng: 75.7004373 }} placeNameTrack={placeNameTrack} />
+              location && placeNameTrack && <MovingMarker location={location} startPoint={initialDestination} placeNameTrack={placeNameTrack} />
             }
             {/* Current User's Location */}
             <Marker position={initialDestination} icon={InitialPoint}>
